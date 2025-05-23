@@ -6,6 +6,12 @@ spring:
     username: ${DB_USER:myuser}
     password: ${DB_PASSWORD:mypassword}
     driver-class-name: com.mysql.cj.jdbc.Driver
+  cache:
+    type: redis
+  redis:
+    host: ${REDIS_HOST:localhost}
+    port: ${REDIS_PORT:6379}
+    password: ${REDIS_PASSWORD:}
 
   jpa:
     hibernate:

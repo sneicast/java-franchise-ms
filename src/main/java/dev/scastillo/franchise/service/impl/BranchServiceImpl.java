@@ -11,6 +11,8 @@ import dev.scastillo.franchise.repository.BranchRepository;
 import dev.scastillo.franchise.repository.FranchiseRepository;
 import dev.scastillo.franchise.service.BranchService;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -33,6 +35,7 @@ public class BranchServiceImpl implements BranchService {
     }
 
     @Override
+    @Cacheable(value = "branches", key = "#id")
     public BranchDto getBranchById(int id) {
         Branch branch = branchRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("No se encontro la Sucursal con id: " + id));
@@ -47,6 +50,7 @@ public class BranchServiceImpl implements BranchService {
     }
 
     @Override
+    @CachePut(value = "branches", key = "#id")
     public BranchDto updateBranch(int id, BranchRequestDto branch) {
         return branchRepository.findById(id)
                 .map(existingBranch -> {

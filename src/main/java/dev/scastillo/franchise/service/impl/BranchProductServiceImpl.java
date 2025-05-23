@@ -67,8 +67,6 @@ public class BranchProductServiceImpl implements BranchProductService {
 
     @Override
     public List<BranchProductDto> getTopStockProductsByFranchise(int franchiseId) {
-        List<BranchProductDto> results = branchProductRepository.findTopStockProductsByFranchise(franchiseId);
-
-        return results;
+        return branchProductRepository.findTopStockProductsByFranchise(franchiseId);
     }
 }

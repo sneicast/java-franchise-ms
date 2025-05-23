@@ -9,6 +9,8 @@ import dev.scastillo.franchise.model.Product;
 import dev.scastillo.franchise.repository.ProductRepository;
 import dev.scastillo.franchise.service.ProductService;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -27,6 +29,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @Cacheable(value = "products", key = "#id")
     public ProductDto getProductById(Integer id) {
         Product product = productRepository.findById(id)
                 .orElseThrow(() -> new NotFoundException("No se encontro el Producto con id: " + id));
@@ -41,6 +44,7 @@ public class ProductServiceImpl implements ProductService {
     }
 
     @Override
+    @CachePut(value = "products", key = "#id")
     public ProductDto updateProduct(Integer id, ProductRequestDto dto) {
         return productRepository.findById(id)
                 .map(existingProduct -> {

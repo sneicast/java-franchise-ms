@@ -9,6 +9,8 @@ import dev.scastillo.franchise.model.Franchise;
 import dev.scastillo.franchise.repository.FranchiseRepository;
 import dev.scastillo.franchise.service.FranchiseService;
 import lombok.AllArgsConstructor;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -30,6 +32,7 @@ public class FranchiseServiceImpl implements FranchiseService {
     }
 
     @Override
+    @Cacheable(value = "franchises", key = "#id")
     public FranchiseDto getById(Integer id) {
         Franchise franchise = franchiseRepository.findById(id).orElseThrow(() -> new NotFoundException("La franquincia con id " + id + " no fue encontrada"));
         return franchiseMapper.toDto(franchise);
@@ -45,6 +48,7 @@ public class FranchiseServiceImpl implements FranchiseService {
 
 
     @Override
+    @CachePut(value = "franchises", key = "#id")
     public FranchiseDto update(Integer id, FranchiseRequestDto dto) {
         return franchiseRepository.findById(id)
                 .map(existingFranchise -> {
