@@ -4,7 +4,6 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
-import java.util.List;
 
 @Getter
 @Setter
@@ -12,8 +11,8 @@ import java.util.List;
 @AllArgsConstructor
 @NoArgsConstructor
 @Entity
-@Table(name = "franchises")
-public class Franchise {
+@Table(name = "branches")
+public class Branch {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
@@ -21,14 +20,17 @@ public class Franchise {
     @Column(length = 80, nullable = false)
     private String name;
 
+    private boolean status;
+
     @Column(name = "created_at", nullable = false, updatable = false)
     private LocalDateTime createdAt;
 
     @Column(name = "updated_at")
     private LocalDateTime updatedAt;
 
-    @OneToMany(mappedBy = "franchise", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-    private List<Branch> branches;
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "franchise_id", nullable = false)
+    private Franchise franchise;
 
     @PrePersist
     protected void onCreate() {

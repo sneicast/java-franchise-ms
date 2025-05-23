@@ -24,6 +24,7 @@ public class FranchiseServiceImpl implements FranchiseService {
     @Override
     public FranchiseDto create(FranchiseRequestDto dto) {
         Franchise franchise = franchiseMapper.toEntity(dto);
+
         Franchise savedFranchise = franchiseRepository.save(franchise);
         return franchiseMapper.toDto(savedFranchise);
     }

@@ -1,4 +1,4 @@
-package dev.scastillo.franchise.dtos;
+package dev.scastillo.franchise.dtos.branch;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -9,6 +9,11 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class FranchiseRequestDto {
+public class BranchRequestDto {
+
     private String name;
+
+    private boolean status;
+
+    private int franchiseId;
 }
