@@ -64,4 +64,11 @@ public class BranchProductServiceImpl implements BranchProductService {
                 })
                 .orElseThrow(() -> new BadRequestException("No se puede actualizar el producto de la sucursal con id: " + branchId + " y producto con id: " + productId));
     }
+
+    @Override
+    public List<BranchProductDto> getTopStockProductsByFranchise(int franchiseId) {
+        List<BranchProductDto> results = branchProductRepository.findTopStockProductsByFranchise(franchiseId);
+
+        return results;
+    }
 }

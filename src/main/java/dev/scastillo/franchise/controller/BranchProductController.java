@@ -34,4 +34,10 @@ public class BranchProductController {
         branchProductService.removeProductFromBranch(branchId, productId);
     }
 
+    @GetMapping("/franchises/{franchiseId}/top-stock-products")
+    public List<BranchProductDto> getTopStockProducts(@PathVariable int franchiseId) {
+        return branchProductService.getTopStockProductsByFranchise(franchiseId);
+    }
+
+
 }

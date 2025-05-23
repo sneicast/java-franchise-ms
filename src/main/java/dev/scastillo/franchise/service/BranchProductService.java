@@ -14,5 +14,6 @@ public interface BranchProductService {
 
     BranchProductDto UpdateBranchProduct(int branchId, int productId, BranchProductRequestDto branchProductRequestDto);
 
+    List<BranchProductDto> getTopStockProductsByFranchise(int franchiseId);
 
 }
