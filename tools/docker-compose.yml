@@ -1,5 +1,10 @@
 version: '3.9'
 
+networks:
+  franchise-network:
+    name: franchise-network  # Nombre fijo
+    driver: bridge
+
 services:
   mysql:
     image: mysql:8.0
@@ -14,6 +19,8 @@ services:
       - "3306:3306"
     volumes:
       - mysql_data:/var/lib/mysql
+    networks:
+      - franchise-network
 
   redis:
     image: redis:7.2
@@ -23,6 +30,8 @@ services:
       - "6379:6379"
     volumes:
       - redis_data:/data
+    networks:
+      - franchise-network
 
   redis-commander:
     image: rediscommander/redis-commander:latest
@@ -34,6 +43,8 @@ services:
       - "8081:8081"
     depends_on:
       - redis
+    networks:
+      - franchise-network
 
 volumes:
   mysql_data:
