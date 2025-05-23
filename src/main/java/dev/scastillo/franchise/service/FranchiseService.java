@@ -1,7 +1,7 @@
 package dev.scastillo.franchise.service;
 
-import dev.scastillo.franchise.dtos.FranchiseDto;
-import dev.scastillo.franchise.dtos.FranchiseRequestDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseRequestDto;
 
 import java.util.List;
 

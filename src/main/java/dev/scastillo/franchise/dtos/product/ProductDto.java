@@ -1,6 +1,5 @@
-package dev.scastillo.franchise.dtos.branch;
+package dev.scastillo.franchise.dtos.product;
 
-import dev.scastillo.franchise.dtos.franchise.FranchiseDto;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -12,14 +11,12 @@ import java.time.LocalDateTime;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class BranchDto {
+public class ProductDto {
     private int id;
 
     private String name;
 
     private boolean status;
-
-    private FranchiseDto franchise;
 
     private LocalDateTime createdAt;
 

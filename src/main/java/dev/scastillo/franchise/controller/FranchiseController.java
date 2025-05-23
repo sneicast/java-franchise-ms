@@ -1,7 +1,7 @@
 package dev.scastillo.franchise.controller;
 
-import dev.scastillo.franchise.dtos.FranchiseDto;
-import dev.scastillo.franchise.dtos.FranchiseRequestDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseRequestDto;
 import dev.scastillo.franchise.service.FranchiseService;
 import lombok.AllArgsConstructor;
 import org.springframework.web.bind.annotation.*;
@@ -13,7 +13,7 @@ import java.util.List;
 @AllArgsConstructor
 public class FranchiseController {
     private final FranchiseService franchiseService;
-    
+
     @PostMapping
     public FranchiseDto create(@RequestBody FranchiseRequestDto request) {
         return franchiseService.create(request);

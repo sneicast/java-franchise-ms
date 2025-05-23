@@ -1,7 +1,7 @@
 package dev.scastillo.franchise.mapper;
 
-import dev.scastillo.franchise.dtos.FranchiseDto;
-import dev.scastillo.franchise.dtos.FranchiseRequestDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseRequestDto;
 import dev.scastillo.franchise.model.Franchise;
 import org.mapstruct.Mapper;
 

@@ -1,4 +1,4 @@
-package dev.scastillo.franchise.dtos;
+package dev.scastillo.franchise.dtos.franchise;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

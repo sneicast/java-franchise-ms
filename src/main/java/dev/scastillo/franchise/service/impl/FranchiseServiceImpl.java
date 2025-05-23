@@ -1,7 +1,7 @@
 package dev.scastillo.franchise.service.impl;
 
-import dev.scastillo.franchise.dtos.FranchiseDto;
-import dev.scastillo.franchise.dtos.FranchiseRequestDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseDto;
+import dev.scastillo.franchise.dtos.franchise.FranchiseRequestDto;
 import dev.scastillo.franchise.exception.BadRequestException;
 import dev.scastillo.franchise.exception.NotFoundException;
 import dev.scastillo.franchise.mapper.FranchiseMapper;
