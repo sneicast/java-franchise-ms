@@ -1,0 +1,29 @@
+# Archivos de estado de Terraform (pueden contener datos sensibles)
+*.tfstate
+*.tfstate.*
+
+# Archivos de respaldo generados automáticamente
+*.backup
+
+# Archivos de bloqueo del proveedor
+.terraform.lock.hcl
+
+# Directorio donde Terraform guarda módulos y plugins descargados
+.terraform/
+
+# Planes de ejecución (pueden contener información sensible)
+*.tfplan
+
+# Archivos de salida de comandos
+crash.log
+
+# Archivos de logs (si generas logs personalizados)
+*.log
+
+# Archivos de entorno (si usas variables locales no versionadas)
+.env
+.env.*
+
+# Archivos de credenciales (si por alguna razón los tienes allí, lo cual no es recomendado)
+*.tfvars
+*.tfvars.json

@@ -1,0 +1,35 @@
+# terraform.tfvars.example
+# Copia este archivo a terraform.tfvars y completa los valores
+
+# Configuración básica
+aws_region   = "us-east-1"
+project_name = "franchise"
+environment  = "dev"
+
+# Configuración de red
+vpc_cidr = "10.0.0.0/16"
+
+# Configuración EC2
+ec2_instance_type = "t3.medium"  # 4GB RAM, 2 vCPUs
+ec2_key_name      = "franchise-key-pair"  # DEBES CREAR ESTE KEY PAIR EN AWS CONSOLE
+
+# Configuración MySQL
+mysql_engine_version    = "8.0"
+mysql_instance_class    = "db.t3.micro"
+mysql_allocated_storage = 20
+mysql_db_name          = "franchisedb"
+mysql_username         = "admin"
+mysql_password         = "MiPasswordSeguro123!"
+
+# Configuración Redis
+redis_node_type      = "cache.t3.micro"
+redis_num_nodes      = 1
+redis_engine_version = "7.0"
+
+# Tags comunes
+common_tags = {
+  Project     = "franchise"
+  Environment = "dev"
+  ManagedBy   = "terraform"
+  Owner       = "sneider-castillo"
+}
