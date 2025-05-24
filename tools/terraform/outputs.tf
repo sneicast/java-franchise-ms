@@ -46,7 +46,7 @@ output "web_url" {
   value       = "http://${module.ec2.public_ip}"
 }
 
-output "jenkins_url" {
-  description = "Jenkins URL"
+output "api_url" {
+  description = "api URL"
   value       = "http://${module.ec2.public_ip}:8080"
 }
